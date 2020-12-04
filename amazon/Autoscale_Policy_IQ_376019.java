@@ -5,23 +5,20 @@ public class Autoscale_Policy_IQ_376019 {
         
         int i = 0, n = utilization.length;
         while (i < n){
-            if (utilization[i] < 25){
-                if (instances > 1){
-                    instances = (int) Math.ceil(instances / 2);
-                    i += 10;
-                    continue;
-                }
-            } else if (utilization[i] > 60){
-                if (2 * instances < 2 * Math.pow(10, 8)){
-                    instances *= 2;
-                    i += 10;
-                    continue;
-                }
+            if (utilization[i] < 25 && instances > 1){
+                instances = (int) Math.ceil(instances / 2);
+                i += 10;
+                continue;
+            } else if (utilization[i] > 60 && (2 * instances < 2 * Math.pow(10, 8))){
+                instances *= 2;
+                i += 10;
+                continue;
             }
             i++;
         }
         return instances;
     }
+    
     public static void main(String[] args) {
         
         int instances = 1;
