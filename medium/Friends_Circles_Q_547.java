@@ -1,4 +1,4 @@
-class Friends_Circles {
+class Friends_Circles_Q_547 {
     public int findCircleNum(int[][] M) {
         
         int[] visited = new int[M.length];
