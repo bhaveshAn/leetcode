@@ -7,7 +7,7 @@ public class Transaction_Logs_IQ_862600 {
         
         for (String line : transactions){
             String[] split = line.split(" ");
-            if (split[0] == split[1]){
+            if (split[0].trim().equals(split[1].trim())){
                 count.put(split[0], count.getOrDefault(split[0], 0) + 1);
             } else {
                 count.put(split[0], count.getOrDefault(split[0], 0) + 1);
